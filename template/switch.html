@@ -45,7 +45,7 @@
       </header>
       <section class="container">
          <div class="row" align="center">
-            {% message != None %}
+            {% if message != None %}
                <div class="col-xs-12 alert alert-success alert-text" role="alert" align="center">
                   {{message}}
                </div>

@@ -92,7 +92,7 @@ class SignInPage(webapp2.RequestHandler):
         no_of_users = 0
         for c_user in c_users:
           if c_user.id == u_emailaddr:
-            self.redirect('/blog')
+            self.redirect('/switch')
             no_of_users += 1
         if no_of_users != 1:
           self.response.delete_cookie('user')
@@ -160,7 +160,7 @@ class SignInPage(webapp2.RequestHandler):
             self.response.set_cookie('user', hashobj.make_ck_hash(u_username.value),expires=cookie_active_until)
           else:
             self.response.set_cookie('user', hashobj.make_ck_hash(u_username.value))
-          self.redirect('/blog')
+          self.redirect('/switch')
 
 
 class SwitchControlPage(webapp2.RequestHandler):
@@ -184,7 +184,8 @@ class SwitchControlPage(webapp2.RequestHandler):
         page = jinja_env.get_template('switch.html')
         self.response.out.write(page.render(firstname=u_firstname,
                                             emailaddr=u_emailaddr,
-                                            initial=u_initial))
+                                            initial=u_initial,
+                                            message=None))
     else:
       self.redirect('/?action=signout')
 
