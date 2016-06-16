@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>QR Switch | Sign In</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700" type="text/css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:700" type="text/css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <header class="container">
+         <div class="row margin-start">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+               <div class="row row-bg-color-red">
+                  <div class="col-xs-12 header-text text-right">
+                     Company
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 hr-padding">
+               <hr class="hr-style">
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 subheader-text">
+               <b>QR Marked Switches</b>
+            </div>
+         </div>
+      </header>
+      <section class="container">
+         <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+               <form class="form-horizontal" action="#" method="post">
+                  <p class="margin-form-title form-text form-title-text">
+                     Sign In
+                  </p>
+                  {% if message != None %}
+                     <div class="alert alert-success alert-text" role="alert">
+                        {{message}}
+                     </div>
+                  {% endif %}
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if username_error == None %}
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="username"
+                                  placeholder="Username"
+                                  maxlength="50"
+                                  value="{{username}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{username_error}}
+                           </div>
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="username"
+                                  placeholder="Username"
+                                  maxlength="50"
+                                  value="{{username}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if password_error == None %}
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="password"
+                                  placeholder="Password"
+                                  maxlength="20"
+                                  value="{{password}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{password_error}}
+                           </div>
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="password"
+                                  placeholder="Password"
+                                  maxlength="20"
+                                  value="{{password}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-12">
+                        <div class="checkbox">
+                           <label class="form-text form-body-text">
+                              <input type="checkbox" class="checkbox-size" name="rememberme" value="{{rememberme}}">
+                              <div class="pad-left">
+                                 Remember me [next 30 days]
+                              </div>
+                           </label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        <input type="submit" class="btn btn-default btn-size form-body-text pull-right margin-form-submit"
+                        value="Sign In">
+                     </div>
+                  </div>
+               </form>
+               <div class="form-text form-body-text margin-end">
+                  Want to Collaborate?
+                  <a href="/account/signup" class="form-link-text">Sign Up</a> here...
+               </div>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>

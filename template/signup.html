@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>QR Switch | Sign Up</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700" type="text/css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:700" type="text/css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400" type="text/css">
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <link rel="stylesheet" href="../css/style.css">
+      <script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <header class="container">
+         <div class="row margin-start">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+               <div class="row row-bg-color-red">
+                  <div class="col-xs-12 header-text text-right">
+                     Company
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 hr-padding">
+               <hr class="hr-style">
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 subheader-text">
+               <b>QR Marked Switches</b>
+            </div>
+         </div>
+      </header>
+      <section class="container">
+         <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+               <form class="form-horizontal" action="#" method="post">
+                  <p class="margin-form-title form-text form-title-text">
+                     Sign Up
+                  </p>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if firstname_error == None %}
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="firstname"
+                                  placeholder="First Name"
+                                  maxlength="30"
+                                  value="{{firstname}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{firstname_error}}
+                           </div>
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="firstname"
+                                  placeholder="First Name"
+                                  maxlength="30"
+                                  value="{{firstname}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if lastname_error == None %}
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="lastname"
+                                  placeholder="Last Name"
+                                  maxlength="30"
+                                  value="{{lastname}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{lastname_error}}
+                           </div>
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="lastname"
+                                  placeholder="Last Name"
+                                  maxlength="30"
+                                  value="{{lastname}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if emailaddr_error == None %}
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="emailaddr"
+                                  placeholder="Email Address"
+                                  maxlength="50"
+                                  value="{{emailaddr}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{emailaddr_error}}
+                           </div>
+                           <input type="text"
+                                  class="form-control form-body-text textbox-size"
+                                  name="emailaddr"
+                                  placeholder="Email Address"
+                                  maxlength="50"
+                                  value="{{emailaddr}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if password_error == None %}
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="password"
+                                  placeholder="Password"
+                                  maxlength="20"
+                                  value="{{password}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{password_error}}
+                           </div>
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="password"
+                                  placeholder="Password"
+                                  maxlength="20"
+                                  value="{{password}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-12">
+                        {% if cpassword_error == None %}
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="cpassword"
+                                  placeholder="Confirm Password"
+                                  maxlength="20"
+                                  value="{{cpassword}}">
+                        {% else %}
+                           <div class="error-text">
+                              {{cpassword_error}}
+                           </div>
+                           <input type="password"
+                                  class="form-control form-body-text textbox-size"
+                                  name="cpassword"
+                                  placeholder="Confirm Password"
+                                  maxlength="20"
+                                  value="{{cpassword}}">
+                        {% endif %}
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-xs-6">
+                        <a href="/" class="btn btn-default btn-size form-body-text margin-form-submit">
+                           Cancel
+                        </a>
+                     </div>
+                     <div class="col-xs-6">
+                        <input type="submit"
+                               class="btn btn-default btn-size form-body-text pull-right margin-form-submit"
+                               value="Sign Up">
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>
