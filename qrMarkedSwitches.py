@@ -194,7 +194,7 @@ class SwitchControlPage(webapp2.RequestHandler):
           if (c_switch == myswitch.ID1.sid):
             if (action=="changeState"):
               if (myswitch.ID1.state == True):
-                smyswitch.ID1.state = False
+                myswitch.ID1.state = False
               else:
                 myswitch.ID1.state = True
             c_switchState = myswitch.ID1.state
