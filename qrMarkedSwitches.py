@@ -1,6 +1,8 @@
 import os
 import datetime
 
+from webapp2_extras import json
+
 import webapp2
 import jinja2
 
@@ -168,7 +170,7 @@ class SignInPage(webapp2.RequestHandler):
 
 class SwitchControlPage(webapp2.RequestHandler):
   def get(self):
-    
+
     u_cookie = self.request.cookies.get('user')
     if u_cookie:
       u_firstname = None
@@ -186,7 +188,7 @@ class SwitchControlPage(webapp2.RequestHandler):
       else:
         u_initial = u_firstname[:1] + u_lastname[:1]
         c_switch = str(self.request.get('switch'))
-        if ((c_switch == myswitch.ID1.sid) | 
+        if ((c_switch == myswitch.ID1.sid) |
             (c_switch == myswitch.ID2.sid) |
             (c_switch == myswitch.ID3.sid)):
           c_switchState = None
@@ -234,11 +236,37 @@ class SwitchControlPage(webapp2.RequestHandler):
     else:
       self.redirect('/?action=signout')
 
+class GetSwitchStatusAPI(webapp2.RequestHandler):
+  def get (self):
+    switch = self.request.get('switch')
+    if (switch == myswitch.ID1.sid):
+      obj = {
+        'switchID': myswitch.ID1.sid,
+        'switchState': myswitch.ID1.state,
+      }
+    elif (switch == myswitch.ID2.sid):
+      obj = {
+        'switchID': myswitch.ID2.sid,
+        'switchState': myswitch.ID2.state,
+      }
+    elif (switch == myswitch.ID3.sid):
+      obj = {
+        'switchID': myswitch.ID3.sid,
+        'switchState': myswitch.ID3.state,
+      }
+    else:
+      obj = {
+        'switchID': ' ',
+        'switchState': ' ',
+      }
+    #self.response.headers['Content-Type'] = 'application/json'
+    self.response.out.write(json.encode(obj))
 
 app = webapp2.WSGIApplication([
   ('/account/signup', SignUpPage),
   ('/', SignInPage),
   ('/switch', SwitchControlPage),
+  ('/switch/getState', GetSwitchStatusAPI)
 ], debug=True)
 
 def main():
